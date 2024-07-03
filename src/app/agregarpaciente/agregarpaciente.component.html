@@ -1,0 +1,185 @@
+<h4>Formularios template</h4>
+<form autocomplete="off" (ngSubmit)="guardar(forma)" #forma="ngForm">
+  <div>
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Nombre:</label>
+        <div class="col-8">
+          <input
+            class="form-control"
+            type="text"
+            name="nombre"
+            placeholder="Nombre..."
+            [class.is-invalid]="nombre.invalid && nombre.touched"
+            [(ngModel)]="pacienteModel.nombre"
+            required
+            minlength="5"
+            #nombre="ngModel"
+          />
+          <small
+            *ngIf="nombre.invalid && nombre.touched"
+            class="form-text text-danger"
+            >Ingrese 5 letras</small
+          >
+        </div>
+      </div>
+      <!-- cierre -->
+      <!-- apellido -->
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Apellido:</label>
+        <div class="col-8">
+          <input
+            class="form-control"
+            type="text"
+            name="apellido"
+            placeholder="apellido..."
+            [class.is-invalid]="apellido.invalid && apellido.touched"
+            [(ngModel)]="pacienteModel.apellido"
+            required
+            minlength="5"
+            #apellido="ngModel"
+          />
+          <small
+            *ngIf="apellido.invalid && apellido.touched"
+            class="form-text text-danger"
+            >Ingrese el apellido</small
+          >
+        </div>
+      </div>
+      <!-- cierre -->
+       <!-- fecha de Nacimiento -->
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Fecha de Nacimiento:</label>
+        <div class="col-8">
+          <input
+            class="form-control"
+            type="date"
+            name="fecha_nacimiento"
+            placeholder="Fecha de nacimiento..."
+            [class.is-invalid]="fecha_nacimiento.invalid && fecha_nacimiento.touched"
+            [(ngModel)]="pacienteModel.fecha_nacimiento"
+            required
+            #fecha_nacimiento="ngModel"
+          />
+          <small
+            *ngIf="apellido.invalid && apellido.touched"
+            class="form-text text-danger"
+            >Ingrese el apellido</small
+          >
+        </div>
+      </div>
+      <!-- cierre -->
+       <!-- Correo -->
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Correo:</label>
+        <div class="col-8">
+          <input
+            class="form-control"
+            type="email"
+            name="Correo"
+            placeholder="Correo electrico..."
+            [class.is-invalid]="correo.invalid && correo.touched"
+            [(ngModel)]="pacienteModel.correo"
+            required
+            minlength="5"
+            #correo="ngModel"
+          />
+          <small
+            *ngIf="correo.invalid && correo.touched"
+            class="form-text text-danger"
+            >El correo es obligatorio</small
+          >
+        </div>
+      </div>
+  </div>
+  <!-- cierre -->
+   <!-- Genero -->
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Genero:</label>
+    <div class="col-8">
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="genero"
+          value="M"
+          [class.is-invalid]="genero.invalid && genero.touched"
+          [(ngModel)]="pacienteModel.genero"
+          required
+          #genero="ngModel"
+        />
+        <label class="form-check-label">Masculino</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="genero"
+          value="F"
+          [class.is-invalid]="genero.invalid && genero.touched"
+          [(ngModel)]="pacienteModel.genero"
+          required
+          #genero="ngModel"
+        />
+        <label class="form-check-label">Femenino</label>
+      </div>
+    </div>
+  </div>
+<!-- cierre -->
+
+   <!-- Telefono -->
+
+<div class="form-group row">
+  <label class="col-2 col-form-label">Teléfono:</label>
+  <div class="col-8">
+    <input
+      class="form-control"
+      type="tel"
+      name="telefono"
+      placeholder="teléfono..."
+      [class.is-invalid]="telefono.invalid && telefono.touched"
+      [(ngModel)]="pacienteModel.telefono"
+      required
+      pattern="^[0-9]{8}$"
+      #telefono="ngModel"
+    />
+    <small
+      *ngIf="telefono.invalid && telefono.touched"
+      class="form-text text-danger"
+      >Ingrese un número de teléfono válido</small
+    >
+  </div>
+</div>
+<!-- cierre -->
+
+ <!-- Direccion -->
+ <div class="form-group row">
+  <label class="col-2 col-form-label">Dirección:</label>
+  <div class="col-8">
+    <input
+      class="form-control"
+      type="text"
+      name="direccion"
+      placeholder="dirección..."
+      [class.is-invalid]="direccion.invalid && direccion.touched"
+      [(ngModel)]="pacienteModel.direccion"
+      required
+      minlength="5"
+      #direccion="ngModel"
+    />
+    <small
+      *ngIf="direccion.invalid && direccion.touched"
+      class="form-text text-danger"
+    >
+      Ingrese la dirección (mínimo 5 caracteres)
+    </small>
+  </div>
+</div>
+  <!-- cierre -->
+
+  <div class="form-group row">
+    <label></label>
+    <div class="input-group col-md-8">
+      <button type="submit" class="btn btn-outline-primary btn-block">Guardar</button>
+    </div>
+  </div>
+</form>
